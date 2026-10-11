@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   P3R GLOBAL RESET
+   Base: midnight (#0A0F1C) · Text: stark-white (#F8F9FA)
+   ============================================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    /* Kill the browser's default margin so geometry is predictable */
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    /* Theme-matched, thin scrollbar */
+    scrollbar-color: #00e5ff #0a0f1c;
+    scrollbar-width: thin;
+    background-color: theme('colors.midnight');
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: theme('colors.midnight');
+    color: theme('colors.stark-white');
+    font-family: theme('fontFamily.body');
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* WebKit scrollbar — styled to the theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme('colors.midnight');
+    border-left: 1px solid rgba(0, 229, 255, 0.25);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.electric-cyan');
+    border: 2px solid theme('colors.midnight');
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.alert-yellow');
+  }
+
+  ::selection {
+    background: theme('colors.electric-cyan');
+    color: theme('colors.midnight');
+  }
+
+  :focus-visible {
+    outline: 3px solid theme('colors.alert-yellow');
+    outline-offset: 2px;
+  }
+
+  /* Headings: Anton, uppercase, heavy. Italic for aggression. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme('fontFamily.display');
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+  }
+
+  /* Kill tap highlight on mobile for a game-console feel */
+  a,
+  button,
+  [role='button'] {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  /* ---- Hard offset shadow system (no blur, ever) ---- */
+  .shadow-hard {
+    @apply transition-shadow duration-200;
+  }
+
+  /* ---- Slanted container base ---- */
+  .clip-p3 {
+    clip-path: theme('clipPath.p3-slant');
+  }
+  .clip-p3-sm {
+    clip-path: theme('clipPath.p3-slant-sm');
+  }
+
+  /* ---- Kinetic text helpers ---- */
+  .text-stroke-cyan {
+    -webkit-text-stroke: 2px theme('colors.electric-cyan');
+    color: transparent;
+  }
+  .text-stroke-midnight {
+    -webkit-text-stroke: 2px theme('colors.midnight');
+    color: transparent;
+  }
+
+  /* ---- Grid / scanline backdrop ---- */
+  .bg-tartarus-grid {
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ---- Skill meters: a fixed-width track whose FILL scales on the X axis.
+         Width never animates — only transform. ---- */
+  @keyframes p3-meter {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(var(--p3-scale, 1));
+    }
+  }
+  .p3-meter {
+    animation: p3-meter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* ---- Reduced motion: honour the OS, but never break layout ---- */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

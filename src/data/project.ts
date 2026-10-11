@@ -1,0 +1,106 @@
+import type { Project } from "../types/project";
+
+export const projects: Project[] = [
+  {
+    id: 'velvet',
+    title: 'VELVET OS',
+    subtitle: 'Design system for a trading terminal',
+    year: '2026',
+    tags: ['DESIGN SYSTEM', 'REACT', 'MOTION'],
+    accent: 'cyan',
+    blurb: 'A 400-token design language that made a dense trading UI feel like a console.',
+    body: [
+      'Rebuilt a 9-year-old trading terminal on a single motion language. Every state change resolves through one easing curve, so the interface reads as one machine instead of forty widgets.',
+      'Shipped a token pipeline that cut the design-to-code handoff from days to an afternoon.',
+    ],
+    stack: ['React', 'TypeScript', 'GSAP', 'Tailwind'],
+    link: 'https://example.com',
+  },
+  {
+    id: 'NetraSense',
+    title: 'NETRA SENSE',
+    subtitle: 'An end-to-end Fasteners Counting Vision For the Inventory System',
+    year: '2026',
+    tags: ['System Design', 'TypeScript', 'Torch'],
+    accent: 'cyan',
+    blurb: 'A 400-token design language that made a dense trading UI feel like a console.',
+    body: [
+      'Rebuilt a 9-year-old trading terminal on a single motion language. Every state change resolves through one easing curve, so the interface reads as one machine instead of forty widgets.',
+      'Shipped a token pipeline that cut the design-to-code handoff from days to an afternoon.',
+    ],
+    stack: ['React', 'TypeScript', 'GSAP', 'Tailwind'],
+    link: 'https://example.com',
+  },
+  {
+    id: 'tarot',
+    title: 'TAROT ENGINE',
+    subtitle: 'Real-time multiplayer card battler',
+    year: '2025',
+    tags: ['GAME UI', 'WEBSOCKETS', 'WEBGL'],
+    accent: 'yellow',
+    blurb: 'Turn-based combat with sub-16ms input latency and 60fps particle storms.',
+    body: [
+      'Authoritative server, client-side prediction. The whole match renders in one WebGL context with a DOM overlay for crisp text.',
+      'Shipped at 60fps on a five-year-old mid-range laptop by culling every layout-thrashing animation on the board.',
+    ],
+    stack: ['WebGL', 'TypeScript', 'WebSockets'],
+  },
+  {
+    id: 'monolith',
+    title: 'MONOLITH',
+    subtitle: 'Build tool for 3D-printed keycaps',
+    year: '2024',
+    tags: ['TOOLING', 'CAD', 'WEB APP'],
+    accent: 'red',
+    blurb: 'Browser CAD that exports print-ready STLs in under two seconds.',
+    body: [
+      'Spline modelling entirely client-side. The hard part was keeping a 200k-vertex mesh interactive without dropping a frame.',
+      'Every drag updates a transform matrix, never the geometry buffer — reflow-free by construction.',
+    ],
+    stack: ['Three.js', 'Web Workers', 'Vite'],
+  },
+  {
+    id: 'afterglow',
+    title: 'AFTERGLOW',
+    subtitle: 'Audio-reactive visualiser',
+    year: '2024',
+    tags: ['WEBGL', 'SHADERS', 'AUDIO'],
+    accent: 'cyan',
+    blurb: 'GLSL shader stack that turns a setlist into a moving poster.',
+    body: [
+      'FFT data feeds a GPU particle system through a data texture — zero per-frame CPU work beyond the analysis node.',
+      'Runs at 4K on integrated graphics by budgeting draw calls, not pixels.',
+    ],
+    stack: ['GLSL', 'Web Audio API', 'Three.js'],
+  },
+  {
+    id: 'karmasutra',
+    title: 'STATIC BLOOM',
+    subtitle: 'Generative cover art engine',
+    year: '2023',
+    tags: ['GENERATIVE', 'CANVAS', 'BRANDING'],
+    accent: 'yellow',
+    blurb: 'Deterministic generative covers — same seed, same artwork, forever.',
+    body: [
+      'Seeded PRNG drives a constrained geometric system, so every cover is unique but unmistakably one brand.',
+      'Exports print-resolution PNG in a worker thread; the UI never drops below 60fps while rendering.',
+    ],
+    stack: ['Canvas', 'TypeScript'],
+  },
+  {
+    id: 'deadhour',
+    title: 'DEAD HOUR',
+    subtitle: 'Theme engine for dark interfaces',
+    year: '2023',
+    tags: ['THEMING', 'CSS', 'OPEN SOURCE'],
+    accent: 'red',
+    blurb: 'Semantic colour tokens that stay legible at 4AM contrast levels.',
+    body: [
+      'Colour maths that guarantees a minimum contrast ratio for every semantic pair in the palette.',
+      'Adopted by four design systems in its first year.',
+    ],
+    stack: ['CSS', 'PostCSS', 'Design Tokens'],
+  },
+];
+
+export const projectFilters = ['ALL', 'DESIGN SYSTEM', 'GAME UI', 'WEBGL', 'TOOLING', 'GENERATIVE'] as const;
