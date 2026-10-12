@@ -13,17 +13,17 @@ export const site = {
   handle: 'LCT',
   role: 'AI & Backend Engineer',
 
-  heroLines: ['INTERFACES', 'THAT SLAM', 'INTO YOU'],
+  heroLines: ['INFRA', 'API', 'INTO YOU'],
 
   heroKicker: '// AI Engineer · Backend · Dev/ML Ops',
 
   heroBody:
-    'I design and build fast, high-contrast interfaces with the snappiness of a console menu. Every animation is transform-only, every frame earns its place.',
+    'I currently work on AI infrastructure and backend systems. I also build web interfaces and tooling for creative workflows. I enjoy doing Pure Mathematics with the Passion, But most of the time I am working on AI and Engine Development. I am also a hobbyist in Game Development and WebGL. I am currently available for work in 2026.',
 
   stats: [
     { value: '60', suffix: 'FPS', label: 'LOCKED TARGET' },
-    { value: '7', suffix: 'YRS', label: 'SHIPPING UI' },
-    { value: '40', suffix: '+', label: 'PROJECTS' },
+    { value: '2', suffix: 'YRS', label: 'BACKEND DEVELOPMENT' },
+    { value: '2', suffix: 'YRS', label: 'AI ENGINEERING & INFRASTRUCTURE' },
   ],
 
   ctaPrimary: 'ENTER PROJECTS',

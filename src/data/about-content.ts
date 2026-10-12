@@ -10,7 +10,7 @@ export const about = {
     backdrop: ['/pf/persona3.png'],
     backdropHint: 'DROP MORE ART INTO public/pf/ AND LIST IT HERE',
 
-    lede: 'I build interfaces that feel like hardware. Twelve years of shipping product UI taught me one thing: motion is not decoration, it is feedback. Every transition tells you what just happened and what will happen next.',
+    lede: 'I currently enjoy working on AI & Backend Development. I also do some deployment and infrastructure work. I enjoy doing Pure Mathematics with the Passion, But most of the time I am working on AI and Engine Development. I am also a hobbyist in Game Development and WebGL.',
 
     bio: [
         'I started out tuning backend services and kept drifting toward the front end — not because it was easier, but because it is where a system finally has to answer to a human being. These days I live in the seam between the two: design systems, motion architecture, and the rendering work that keeps a busy interface at 60fps.',
