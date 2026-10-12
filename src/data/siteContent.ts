@@ -1,10 +1,10 @@
-import bgmDarkHour from '../assets/audio/bgm_dark_hour.mp3';
+import p3 from '../assets/audio/p3.mp3';
 
 export const music = {
   volume: 0.3,
   tracks: [
-    { id: 'dark-hour', title: 'THE DARK HOUR', mood: 'AMBIENT', src: bgmDarkHour },
-    // { id: 'unleash-now', title: 'UNLEASH, NOW!', mood: 'BATTLE', src: '/music/unleash-now.mp3' },
+    // { id: 'dark-hour', title: 'THE DARK HOUR', mood: 'AMBIENT', src: bgmDarkHour },
+    { id: 'p3', title: 'Memories of You!', mood: 'NOSTALGIC', src: p3 },
   ],
 } as const;
 
