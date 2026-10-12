@@ -3,6 +3,7 @@ import { GeometricShape } from '../ui/GeometricShape';
 import { KineticText } from '../ui/KineticText';
 import { PortraitBackdrop } from '../ui/PortraitBackdrop';
 import { P3Card } from '../ui/P3Card';
+import { TechMarquee } from '../ui/TechMarquee';
 
 
 export function About() {
@@ -52,6 +53,14 @@ export function About() {
         </h1>
 
         <p className="mt-8 max-w-3xl font-display text-2xl italic leading-snug text-alert-yellow">{about.lede}</p>
+
+        {/* running tech-stack lines */}
+        <div className="mt-12">
+          <p className="mb-3 font-mono text-[10px] tracking-[0.4em] text-stark-white/45">
+            // RUNNING LOADOUT — HOVER TO HOLD
+          </p>
+          <TechMarquee rows={about.stack} />
+        </div>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.15fr_1fr]">
           {/* bio */}
