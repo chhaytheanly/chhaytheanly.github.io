@@ -6,8 +6,14 @@ import { music } from '../../data/siteContent';
 /**
  * Mounts the theme engine and keeps React in sync with it.
  *
- * Autoplay policy: music can't start before a gesture, so we arm it on the
- * player's first pointer/key interaction — the same moment the UI SFX unlock.
+ * Autoplay policy is handled inside `musicManager.armAutoplay()` — it binds to
+ * the full set of gesture events and keeps retrying until playback is actually
+ * confirmed, which is what mobile needs (iOS fires `pointerdown` before the
+ * AudioContext unlocks, so a single `once: true` handler silently loses the
+ * race and music never starts).
+ *
+ * This provider only adds the lifecycle wiring: subscribe for re-renders,
+ * arm on mount, and revive on the events where mobile suspends audio.
  */
 export function MusicProvider({ children }: { children: ReactNode }) {
   const [tick, setTick] = useState(0);
@@ -15,12 +21,20 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   useEffect(() => musicManager.subscribe(() => setTick((t) => t + 1)), []);
 
   useEffect(() => {
-    const arm = () => musicManager.tryAutoplay();
-    window.addEventListener('pointerdown', arm, { once: true });
-    window.addEventListener('keydown', arm, { once: true });
+    musicManager.armAutoplay();
+
+    // Mobile browsers suspend the AudioContext when the tab is backgrounded and
+    // don't reliably restore it — resume on the way back in, on both the
+    // visibility API and the bfcache-restore path.
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') musicManager.revive();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('pageshow', onVisible);
+
     return () => {
-      window.removeEventListener('pointerdown', arm);
-      window.removeEventListener('keydown', arm);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('pageshow', onVisible);
     };
   }, []);
 
